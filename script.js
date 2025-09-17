@@ -1,7 +1,7 @@
-// Esperar a que el DOM esté completamente cargado
+// Esperar a que el formulario esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Array para almacenar los correos registrados
+    // Array para almacenar los correos registrados para validacion
     let correosRegistrados = [];
     
     // Obtener el formulario
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Validar nombre (no debe estar vacío)
         if (nombre === '') {
-            alert('❌ Error: El campo nombre no puede estar vacío'); // Alert requerido por instrucciones
+            alert('❌ Error: El campo nombre no puede estar vacío'); // Alert requerido
             mostrarError('El campo nombre no puede estar vacío', 'nombre');
             formularioValido = false;
             return;
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Validar que el correo no esté vacío
         if (correo === '') {
-            alert('❌ Error: El campo correo electrónico es obligatorio'); // Alert requerido por instrucciones
+            alert('❌ Error: El campo correo electrónico es obligatorio'); // Alert requerido
             mostrarError('El campo correo electrónico es obligatorio', 'correo');
             formularioValido = false;
             return;
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Validar formato del correo electrónico
         const formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!formatoCorreo.test(correo)) {
-            alert('❌ Error: El formato del correo electrónico no es válido'); // Alert requerido por instrucciones
+            alert('❌ Error: El formato del correo electrónico no es válido'); // Alert requerido
             mostrarError('El formato del correo electrónico no es válido', 'correo');
             formularioValido = false;
             return;
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Validar si el correo ya está registrado
         if (correosRegistrados.includes(correo.toLowerCase())) {
-            alert('❌ Error: Este correo electrónico ya está registrado'); // Alert requerido por instrucciones
+            alert('❌ Error: Este correo electrónico ya está registrado'); // Alert requerido
             mostrarError('Este correo electrónico ya está registrado', 'correo');
             formularioValido = false;
             return;
@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Validar que la contraseña tenga mínimo 8 caracteres
         if (contrasena.length < 8) {
-            alert('❌ Error: La contraseña debe tener mínimo 8 caracteres'); // Alert requerido por instrucciones
+            alert('❌ Error: La contraseña debe tener mínimo 8 caracteres'); // Alert requerido
             mostrarError('La contraseña debe tener mínimo 8 caracteres', 'contrasena');
             formularioValido = false;
             return;
@@ -200,10 +200,10 @@ document.addEventListener('DOMContentLoaded', function() {
             // Agregar el correo al array de correos registrados
             correosRegistrados.push(correo.toLowerCase());
             
-            // Alert de éxito (requerido por instrucciones)
+            // Alert de éxito 
             alert('✅ ¡Éxito! Tu cuenta ha sido creada correctamente');
             
-            // Crear mensaje de éxito visual (mejora de UX)
+            // Crear mensaje de éxito visual
             const successDiv = document.createElement('div');
             successDiv.className = 'success-message';
             successDiv.innerHTML = `
